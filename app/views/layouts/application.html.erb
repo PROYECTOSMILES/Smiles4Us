@@ -11,26 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/assets/bootstrap.css" rel="stylesheet" media = "screen">
+    <link href="/assets/tetravortex.css" rel="stylesheet" media = "screen">
       <%= csrf_meta_tags %>
-      
-     
+    <script src="/assets/jquery.js"></script>
+       <script>
+	$(document).ready(function(){
+ 
+    	$("#welcomebox").fadeIn("slow");
+
+       });
+</script> 
+   
   </head>
   <body>
 
-
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
 
       <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -42,7 +36,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Smile4us</a>
+	<%= link_to "Smiles4Us", root_path , class: "navbar-brand" %>      
+	
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,8 +53,39 @@
         </div>
         <button type="submit" class="btn btn-default">Buscar</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+      <ul class="list-inline navbar-right">
+        
+	<li>
+
+
+         <div id="nav">
+    
+
+
+
+    		<% unless (params[:controller] == ('users' || 'user_sessions') && params[:action] == ('new'|| 'create')) %>
+        
+
+      		  <% if current_user %>
+     		  <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+     		  <%= link_to "Logout", :logout, method: :post %>
+    		<% else %>
+      
+     		 <%= link_to "Login", :login, class: "btn btn-default" %>
+    		  <% end %>
+  
+
+    		<% end %>
+   
+  </div>
+  <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div>
+
+
+
+        </li>
         <button type="button" class="btn btn-default btn-lg">
           <span class="glyphicon glyphicon-star"></span> 
         </button>
@@ -68,7 +94,12 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div Id= "welcomebox" class="jumbotron" align= center>
+  
   <%= yield %>
+</div>
+  
 
   </body>
 </html>

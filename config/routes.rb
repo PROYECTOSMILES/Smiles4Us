@@ -1,4 +1,16 @@
 Blog::Application.routes.draw do
+  resources :showcases
+
+
+  resources :galleries
+
+
+  get "password_resets/create"
+
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
   get "user_sessions/new"
 
   get "user_sessions/create"
@@ -69,6 +81,8 @@ Blog::Application.routes.draw do
    root :to => 'users#index'
    resources :user_sessions
    resources :users
+   
+   resources :password_resets
 
    get 'login' => 'user_sessions#new', :as => :login
    post 'logout' => 'user_sessions#destroy', :as => :logout

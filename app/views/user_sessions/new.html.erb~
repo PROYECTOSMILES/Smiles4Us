@@ -1,5 +1,5 @@
-<h1>UserSessions#new</h1>
+<ttitle>Good to see you back!</ttitle> <h2\>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', user_sessions_path %>
+
