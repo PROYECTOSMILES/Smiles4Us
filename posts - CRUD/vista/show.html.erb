@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row" draggable="true">
+</br>
+</br>
+		<p id="notice">
+			<%= notice %>
+		</p>
+
+		<p>
+			<b>Titulo:</b>
+
+			<%= @post.titulo %>
+		</p>
+
+		<p>
+			<% if @post.has_photo? %>
+		<p>
+			<%= image_tag @post.photo_path %>
+		</p>
+		<% else %>
+		<b>Tu foto no se cargo :(</b>
+
+		<% end %>
+
+		</p>
+
+		<p>
+			<button type="button" class="btn btn-default btn-lg">
+				<span class="glyphicon glyphicon-heart-empty"></span> Me gusta
+			</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77 Me gusta  |  15 comentarios
+		</p>
+		<p></p>
+		<p>
+			<textarea rows="3" cols="55">
+Ingresa tu comentario...
+</textarea>
+</p>		<%= link_to 'Editar', edit_post_path(@post) %> |
+		<%= link_to 'Atras', posts_path %>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br />
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+
+	</div>
+</div>
