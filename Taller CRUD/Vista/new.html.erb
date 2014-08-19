@@ -1,0 +1,55 @@
+ <% content_for :header do %>
+<div class="intro-header">
+
+    <div class="container">
+
+     <div class="row">
+        <div class="col-lg-12">
+          <div class="intro-message-session">
+            <h1 class="text-center" id="headerTitle">Smiles 4 Us</h1>
+            </br>
+             </br>
+             
+          
+
+<% end %>
+ <% content_for :footer do %>
+  </div>
+        </div>
+      </div>
+
+    </div>
+  
+
+  </div>
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-inline">
+            <li>
+              <a href="index.html">Inicio</a>
+            </li>
+            <li class="footer-menu-divider">⋅</li>
+            <li>
+              <a href="#about">Nosotros</a>
+            </li>
+            <li class="footer-menu-divider">⋅</li>
+
+            <li>
+              <a href="#contact">Contactos</a>
+            </li>
+          </ul>
+          <p class="copyright text-muted small">Copyright © Smiles4Us</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+<% end %>
+<%= yield :header %>
+<%= render 'form' %>
+<%= yield :footer %>
+
+<%= link_to 'Atrás', usuarios_path %>
