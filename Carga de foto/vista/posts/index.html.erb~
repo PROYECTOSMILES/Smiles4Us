@@ -1,0 +1,154 @@
+</br>
+
+<div class="row">
+
+	<div class="col-xs-12 col-md-2">
+
+		<%= render "menu" %>
+
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-9">
+
+		<h1>Listado de posts</h1>
+		
+		<%= render "posts/new" %>
+            <ul id="filterOptions" class="gallery-cats clearfix">
+                <li class="active"><a href="#" class="all">Todos</a></li> 
+                <li><a href="#" class="illustration">Ilustraciones</a></li>
+                <li><a href="#" class="design">Dibujo Artístico</a></li>
+                <li><a href="#" class="video">Fotografía</a></li>
+                <li><a href="#" class="web">Comics</a></li>
+            </ul>
+
+		<ul class='thumbnail' id='posts'  >
+			<div class="row" draggable="true" >
+				<% @posts.each do |post| %>
+				
+				
+        
+
+         
+
+
+                       
+                  
+    
+    
+    
+    
+
+				<div id='post'>
+
+					<div class="col-xs-12 col-sm-4" >
+
+						<li  class='span4'>
+
+							<div class='thumbnail'>
+
+								<% if post.has_photo? %>
+								<a href="#"><%=image_tag post.photo_path %></a>
+								<% end %>
+								
+							<!--	<%= link_to post.titulo , post %>  -->
+								<button class="btn btn-link" data-toggle="modal" data-target="#myModal">
+									<h4><span class="label label-primary"><%= post.titulo %></span> </h4>
+								</button>
+								<div class='caption'>
+
+									<!-- Button trigger modal -->
+
+									<!-- Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">
+														<span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+													</button>
+													<h4 class="modal-title" id="myModalLabel"><%= post.titulo %></h4>
+												</div>
+												<div class="modal-body">
+
+													
+													<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+     <%=image_tag post.photo_path %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item">
+     <%=image_tag post.photo_path %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    
+    
+   
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+													
+													
+													
+
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default btn-md">
+														<span class="glyphicon glyphicon-heart-empty"></span> Me gusta
+													</button>
+													<button type="button" class="btn btn-default btn-md">
+														<span class="glyphicon glyphicon-comment"></span> Comentar
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<button type="button" class="btn btn-default btn-md">
+										<span class="glyphicon glyphicon-heart-empty"></span> Me gusta
+									</button>
+									<button type="button" class="btn btn-default btn-md">
+										<span class="glyphicon glyphicon-comment"></span> Comentarios
+									</button>
+
+								</div>
+
+							</div>
+						</li>
+
+					</div>
+
+					<% end %>
+		</ul>
+		<a class="btn btn-default" href="/posts/new" role="button"><span class="glyphicon glyphicon-upload" > </span> Nuevo post</a>
+	</div>
+
+	</br>
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
